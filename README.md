@@ -1,60 +1,52 @@
-# 🚗 Autonomous-path-following-robot
+# 🤖 Autonomous Path Following Robot
 
-## Autonomous Lane Follower using Raspberry Pi
+## Precision Lane Navigation with Raspberry Pi
 
-This project demonstrates an autonomous robot that follows lane markings using a Raspberry Pi, OpenCV, and Picamera2. It uses histogram-based lane detection and adjusts motor speeds accordingly via an **L298N motor controller** to stay within the lane.
-
----
-
-## 🖼️ Screenshots (Optional)
-
-You can place demo images or videos in a `media/` folder.
-
-| Lane Detection      | Perspective Warp View | Steering Overlay    |
-| ------------------- | --------------------- | ------------------- |
-| *(Add images here)* | *(Add images here)*   | *(Add images here)* |
+This project showcases an intelligent, self-driving robot designed to autonomously follow road lanes using a Raspberry Pi, OpenCV, and PiCamera2. The system leverages image histogram-based lane detection and dynamically adjusts motor speeds through an **L298N motor controller**, ensuring precise path alignment in real time.
 
 ---
 
-## 🔥 Features
+## 📸 Visual Demo
 
-* 🎥 Real-time video feed from **PiCamera2**
-* 🧠 Histogram-based lane detection
-* 🔁 Perspective transformation for top-down view
-* 📐 Angle estimation and smooth motor control
-* ⚙️ L298N motor driver to drive 2 DC motors via GPIO
-* 📝 Configurable parameters via YAML file
-* 💾 Optional frame saving for debugging
-* 🚨 Failsafe stop if no lane detected
-* 📈 Runtime logging to `lane_follower.log`
+Add screenshots or demo footage in the `media/` directory to showcase:
+
+| Lane Detection   | Top-Down Warp View | 
+| ---------------- | ------------------ | 
+| *(![img2_after](https://github.com/user-attachments/assets/30f3228f-415c-4d3b-9bf6-5ed980f501bd)
+)* | ![img2_after](https://github.com/user-attachments/assets/d06446b1-ef39-4467-b82b-6a6118ea2e25)
+  | 
 
 ---
 
-## 📁 Folder Structure
+## 🚀 Key Features
 
-```
-├── lane_follower.py              # Main controller script
-├── lane_follower_config.yaml    # YAML configuration
-├── lane_follower.log            # Logging file
-├── /home/pi/lane_follower_images/  # (Optional) Saved debug frames
-├── README.md
-└── media/                        # (Optional) Screenshots, GIFs
-```
+* 🎥 **Live video capture** using **PiCamera2**
+* 🧠 **Robust lane detection** via histogram-based processing
+* 🔁 **Perspective warping** for improved lane geometry understanding
+* 📐 **Real-time angle calculation** and directional control
+* ⚙️ **L298N Motor Driver**: GPIO-controlled differential drive
+* 📝 Fully customizable behavior via `YAML` config
+* 💾 Option to **save frames** for analysis/debugging
+* 🚨 **Failsafe mechanism** to halt if lane detection fails
+* 📈 Logs detailed runtime metrics to `lane_follower.log`
 
----
-
-## 🧰 Requirements
-
-* Raspberry Pi 4/3B+
-* PiCamera2 (libcamera compatible)
-* L298N motor controller
-* 2x DC motors
-* Jumper wires, breadboard
-* External power for motors
 
 ---
 
-## 🔧 Installation
+## 🛠 Hardware Requirements
+
+* Raspberry Pi 4 or 3B+
+* Official PiCamera2 (libcamera-compatible)
+* L298N dual H-bridge motor controller
+* 2x DC Motors
+* Jumper wires and breadboard
+* Dedicated external power supply for motors
+
+---
+
+## ⚙️ Software Installation
+
+Ensure the Raspberry Pi is configured with `libcamera` support. Then install dependencies:
 
 ```bash
 sudo apt update
@@ -62,61 +54,39 @@ sudo apt install python3-opencv python3-pip libyaml-dev -y
 pip3 install RPi.GPIO picamera2 numpy pyyaml
 ```
 
-Make sure your Raspberry Pi is configured for `libcamera` and `picamera2`.
 
 ---
 
-## ⚙️ Configuration Example
+## ▶️ Execution
 
-**lane\_follower\_config.yaml**:
-
-```yaml
-wheelbase: 0.2
-wheel_radius: 0.03
-base_speed: 40
-pwm_frequency: 1000
-warp_points: [102, 80, 20, 214]
-lane_threshold: [80, 255]
-base_rpm: 60
-max_angle: 30
-autonomous_mode: true
-debug_display: false
-save_images: true
-save_path: "/home/pi/lane_follower_images/"
-max_run_time: 120
-stop_on_no_lane: true
-```
-
----
-
-## ▶️ Run the Robot
+To launch the robot:
 
 ```bash
 python3 lane_follower.py
 ```
 
-The robot will start detecting lanes and follow them by adjusting its left and right motor speeds dynamically.
+Once initialized, the robot begins tracking the lane, steering with real-time feedback using differential drive logic.
 
 ---
 
-## 🛠️ Troubleshooting
+## 🧪 Troubleshooting Tips
 
-* **Camera not detected?** Run `libcamera-hello` to verify.
-* **Motors not moving?** Double-check GPIO connections.
-* **Too much lane jitter?** Adjust `warp_points`, histogram logic, or add image smoothing.
-* **Debugging visuals not shown?** Set `debug_display: true` in YAML.
+* **Camera issues?** Run `libcamera-hello` to verify PiCamera2 is operational.
+* **No motor response?** Recheck all GPIO pin connections and L298N wiring.
+* **Unstable steering?** Tune `warp_points` and `lane_threshold` values.
+* **No debug overlay?** Enable `debug_display: true` in the config.
 
 ---
 
 ## 📜 License
 
-This project is released under the **MIT License**.
+Distributed under the **MIT License**. See `LICENSE` for details.
 
 ---
 
-## 🙌 Acknowledgements
+## 🙏 Acknowledgements
 
-* [OpenCV](https://opencv.org/)
-* [PiCamera2](https://github.com/raspberrypi/picamera2)
-* [Tux Robotics](https://tuxrpi.com/)
-* Community tutorials on line following with Raspberry Pi
+* [OpenCV](https://opencv.org/) — Image processing
+* [PiCamera2](https://github.com/raspberrypi/picamera2) — Camera integration
+* [Tux Robotics](https://tuxrpi.com/) — Inspiration & resources
+* Raspberry Pi & the open-source community
