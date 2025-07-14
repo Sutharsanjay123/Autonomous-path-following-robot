@@ -10,12 +10,9 @@ This project showcases an intelligent, self-driving robot designed to autonomous
 
 Add screenshots or demo footage in the `media/` directory to showcase:
 
-| Lane Detection   | Top-Down Warp View | 
-| ---------------- | ------------------ | 
-| *(![img2_after](https://github.com/user-attachments/assets/30f3228f-415c-4d3b-9bf6-5ed980f501bd)
-)* | ![img2_after](https://github.com/user-attachments/assets/d06446b1-ef39-4467-b82b-6a6118ea2e25)
-  | 
-
+| Lane Detection   |
+| ---------------- |
+![img2_after](https://github.com/user-attachments/assets/30f3228f-415c-4d3b-9bf6-5ed980f501bd)
 ---
 
 ## 🚀 Key Features
