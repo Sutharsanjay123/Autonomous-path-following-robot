@@ -75,12 +75,6 @@ Once initialized, the robot begins tracking the lane, steering with real-time fe
 
 ---
 
-## 📜 License
-
-Distributed under the **MIT License**. See `LICENSE` for details.
-
----
-
 ## 🙏 Acknowledgements
 
 * [OpenCV](https://opencv.org/) — Image processing
